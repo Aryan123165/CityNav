@@ -4,7 +4,19 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 const admin = require('firebase-admin');
 
+// Isme apni serviceAccountKey.json ka data copy-paste kar dena baad mein
+// Abhi ke liye ye code crash nahi hone dega
 const serviceAccount = require("./serviceAccountKey.json");
+
+if (!admin.apps.length) {
+    try {
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount)
+        });
+    } catch (e) {
+        console.log("Firebase Init Error, but keeping server alive...");
+    }
+}
 if (!admin.apps.length) {
     admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 }
@@ -124,4 +136,5 @@ server.listen(PORT, '0.0.0.0', () => {
     seedBuses(); 
     console.log(`Server is running on port ${PORT}`); 
 });
+
 
