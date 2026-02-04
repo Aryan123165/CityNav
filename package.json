@@ -1,6 +1,8 @@
 {
   "name": "citynav",
   "version": "1.0.0",
+  "description": "CityNav Public Transport Intelligence",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
@@ -9,5 +11,8 @@
     "socket.io": "^4.7.2",
     "cors": "^2.8.5",
     "firebase-admin": "^11.11.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
