@@ -9,7 +9,7 @@ if (!admin.apps.length) {
     admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 }
 const db = admin.firestore();
-const app = express();
+app.use(express.static(__dirname)); // Isse index.html live link par khulegi
 app.use(cors());
 app.use(express.json());
 
@@ -124,3 +124,4 @@ server.listen(PORT, '0.0.0.0', () => {
     seedBuses(); 
     console.log(`Server is running on port ${PORT}`); 
 });
+
