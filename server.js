@@ -119,4 +119,8 @@ app.post('/api/verify-ticket', async (req, res) => {
     res.json({ valid: true, message: "Verified! Welcome Aboard." });
 });
 
-server.listen(3001, () => { seedBuses(); console.log("Server: 3001"); });
+const PORT = process.env.PORT || 3001;
+server.listen(PORT, '0.0.0.0', () => { 
+    seedBuses(); 
+    console.log(`Server is running on port ${PORT}`); 
+});
