@@ -13,7 +13,9 @@ app.use(express.static(__dirname));
 
 // Test Route
 app.get('/', (req, res) => {
-    res.send("CityNav Server is Running!");
+   app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
 });
 
 // Presentation ke liye Buses ka data
@@ -30,5 +32,6 @@ const PORT = process.env.PORT || 3001;
 server.listen(PORT, '0.0.0.0', () => {
     console.log(`✅ CityNav Live on Port ${PORT}`);
 });
+
 
 
