@@ -64,7 +64,8 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        const API = "http://localhost:3001";
+        // ISSE BADLEIN:
+const API = "https://citynav-kota.onrender.com"; // Yahan apna Render wala link daalein
         const socket = io(API);
         const map = L.map('map').setView([25.1381, 75.8112], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
@@ -160,4 +161,5 @@
         function closeModal() { document.getElementById('tModal').classList.add('hidden'); }
     </script>
 </body>
+
 </html>
